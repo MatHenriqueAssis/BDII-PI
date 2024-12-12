@@ -1,7 +1,7 @@
 # Projeto Integrador - Banco de Dados do Salão Escola (SENAC PE)
 
 ## Descrição
-Este projeto tem como objetivo a construção de um **Banco de Dados** para gerenciar o funcionamento de um salão de beleza e escola de cursos, realizado como parte do **Projeto Integrador do segundo período** da faculdade **SENAC PE**. O sistema foi desenvolvido utilizando o **MySQL** como Sistema de Gerenciamento de Banco de Dados (SGBD).
+Este projeto tem como objetivo a construção de um **Banco de Dados** para gerenciar o funcionamento de um salão escola, realizado como parte do **Projeto Integrador do segundo período** da faculdade **SENAC PE**. O sistema foi desenvolvido utilizando o **MySQL** como Sistema de Gerenciamento de Banco de Dados (SGBD).
 
 A proposta do sistema é gerenciar informações de **usuários**, **agendamentos**, **funcionários**, **serviços**, **telefones** e **endereços**, além de permitir o controle do fluxo de agendamentos de serviços, incluindo as formas de pagamento e os funcionários responsáveis por cada agendamento.
 
