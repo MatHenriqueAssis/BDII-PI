@@ -392,7 +392,7 @@ CALL cadFunc(
     'Recife',       
     'Varzea',          
     'Rua da agua',  
-    '81995683465'              
+    '8199568346'              
 );
 
 delimiter $$
@@ -429,7 +429,7 @@ CALL cadUsuario(
     'Av. Atlântica',   
     'maria@example.com', 
     'senha123',        
-    '81997367555'      
+    '8199736755'      
 );
 
 delimiter $$
