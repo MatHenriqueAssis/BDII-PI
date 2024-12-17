@@ -392,7 +392,7 @@ CALL cadFunc(
     'Recife',       
     'Varzea',          
     'Rua da agua',  
-    '8199568346'              
+    '81995683465'              
 );
 
 delimiter $$
