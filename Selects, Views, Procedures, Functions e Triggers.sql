@@ -503,7 +503,7 @@ delimiter ;
 INSERT INTO agendamento (idAgendamento, valorPago, dataHora) 
 VALUES (41, 100.00, '2024-12-17 10:00:00');
 
-SELECT * FROM historico_agendamento WHERE idAgendamento = 1;	
+SELECT * FROM agendamento WHERE idAgendamento = 1;	
 	
 delimiter $$
 
@@ -545,7 +545,7 @@ UPDATE usuario
 SET nome = 'Maria Oliveira' 
 WHERE CPF = '123.456.789-01';
 
-SELECT * FROM historico_usuario WHERE CPF = '123.456.789-01';
+SELECT * FROM usuario WHERE CPF = '123.456.789-01';
 
 
 	
@@ -581,7 +581,7 @@ delimiter ;
 	
 DELETE FROM funcionario WHERE matricula = 20;
 
-SELECT * FROM historico_funcionario WHERE matricula = 20;
+SELECT * FROM uncionario WHERE matricula = 20;
 
 
 
