@@ -389,10 +389,10 @@ CALL cadFunc(
     'João',            
     '1985-06-15',      
     '2024-01-10 08:00:00', 
-    'São Paulo',       
-    'Centro',          
-    'Rua das Flores',  
-    '123'              
+    'Recife',       
+    'Varzea',          
+    'Rua da agua',  
+    '8199568346'              
 );
 
 delimiter $$
@@ -429,7 +429,7 @@ CALL cadUsuario(
     'Av. Atlântica',   
     'maria@example.com', 
     'senha123',        
-    '9876543210'      
+    '81997367555'      
 );
 
 delimiter $$
