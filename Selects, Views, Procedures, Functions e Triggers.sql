@@ -362,7 +362,7 @@ SELECT calcIRRF(5000.00) AS IRRF;
 
 
 delimiter $$
-create procedure cadFunc(in pmatricula varchar(14),
+create procedure cadFunc(in pmatricula int,
 						in pnomeFuncionario varchar(60), 
 						in pnomeSocial varchar(45),						
 						in pdataNasc date, 
@@ -384,7 +384,7 @@ create procedure cadFunc(in pmatricula varchar(14),
 delimiter ;
 
 CALL cadFunc(
-    '12345678901234',  
+    '21',  
     'João Silva',      
     'João',            
     '1985-06-15',      
@@ -408,7 +408,7 @@ create procedure cadUsuario(in pCPF varchar(14),
 						in pnumero varchar(45))
 
 	begin
-		insert into usuario (CPF, nome, sexo, dataNasc)
+		insert into usuario (usuario, nome, sexo, dataNasc)
 			value (pCPF, pnome, psexo, pdataNasc);
 		insert into usuarioendereco
 			value (pCPF, pcidade, pbairro, prua);
@@ -420,12 +420,12 @@ create procedure cadUsuario(in pCPF varchar(14),
 delimiter ;
 
 CALL cadUsuario(
-    '12345678901',   
+    '123.456.789-01',   
     'Maria Oliveira',  
     'Feminino',        
     '1990-03-22',     
-    'Rio de Janeiro',  
-    'Copacabana',      
+    'Recife',  
+    'Cordeiro',      
     'Av. Atlântica',   
     'maria@example.com', 
     'senha123',        
@@ -482,11 +482,11 @@ begin
 end $$
 delimiter ;
 	
-INSERT INTO usuario (nome, sexo, dataNasc) 
-VALUES ('João', 'Masculino', '1990-01-01');	
+INSERT INTO usuario (CPF,nome, sexo, dataNasc) 
+VALUES ('123.456.789-03','João Maxuel', 'Masculino', '1990-01-01');	
 
-INSERT INTO usuario (nome, sexo, dataNasc) 
-VALUES ('Maria', 'Outros', '1995-05-20');
+INSERT INTO usuario (CPF,nome, sexo, dataNasc) 
+VALUES ('123.456.789-01','Maria Oliveira', 'Outros', '1995-05-20');
 
 delimiter $$
 
@@ -520,12 +520,12 @@ end $$
 delimiter ;
 	
 UPDATE funcionario 
-SET dataDem = '2025-01-01' 
-WHERE matricula = 1234;
+SET dataDem = '2019-01-01' 
+WHERE matricula = 20;
 
 UPDATE funcionario 
-SET dataDem = '2020-01-01' 
-WHERE matricula = 1234;
+SET dataDem = '2024-01-01' 
+WHERE matricula = 20;
 
 
 
@@ -542,10 +542,10 @@ end $$
 delimiter ;
 
 UPDATE usuario 
-SET nome = 'João Silva' 
-WHERE CPF = '12345678900';
+SET nome = 'Maria Oliveira' 
+WHERE CPF = '123.456.789-01';
 
-SELECT * FROM historico_usuario WHERE CPF = '12345678900';
+SELECT * FROM historico_usuario WHERE CPF = '123.456.789-01';
 
 
 	
@@ -579,9 +579,9 @@ begin
 end $$
 delimiter ;
 	
-DELETE FROM funcionario WHERE matricula = 1234;
+DELETE FROM funcionario WHERE matricula = 20;
 
-SELECT * FROM historico_funcionario WHERE matricula = 1234;
+SELECT * FROM historico_funcionario WHERE matricula = 20;
 
 
 
