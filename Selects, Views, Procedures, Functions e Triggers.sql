@@ -334,6 +334,13 @@ create function calcINSS(sb decimal(7,2))
     end $$
 delimiter ;
 
+SELECT calcINSS(1400.00) AS INSS;  
+SELECT calcINSS(2500.00) AS INSS;  
+SELECT calcINSS(3500.00) AS INSS;  
+SELECT calcINSS(6000.00) AS INSS; 
+SELECT calcINSS(8000.00) AS INSS;  
+
+
 delimiter $$
 create function calcIRRF(sb decimal(7,2))
 	returns decimal(6,2) deterministic
@@ -347,6 +354,12 @@ create function calcIRRF(sb decimal(7,2))
 		return irrf;
     end $$
 delimiter ;
+
+SELECT calcIRRF(2700.00) AS IRRF; 
+SELECT calcIRRF(3000.00) AS IRRF;  
+SELECT calcIRRF(4000.00) AS IRRF; 
+SELECT calcIRRF(5000.00) AS IRRF;  
+
 
 delimiter $$
 create procedure cadFunc(in pmatricula varchar(14),
@@ -369,6 +382,18 @@ create procedure cadFunc(in pmatricula varchar(14),
 			value (pnumero, pmatricula);
     end $$
 delimiter ;
+
+CALL cadFunc(
+    '12345678901234',  -- pmatricula
+    'João Silva',      -- pnomeFuncionario
+    'João',            -- pnomeSocial
+    '1985-06-15',      -- pdataNasc
+    '2024-01-10 08:00:00', -- pdataAdm
+    'São Paulo',       -- pcidade
+    'Centro',          -- pbairro
+    'Rua das Flores',  -- prua
+    '123'              -- pnumero
+);
 
 delimiter $$
 create procedure cadUsuario(in pCPF varchar(14),
@@ -394,6 +419,19 @@ create procedure cadUsuario(in pCPF varchar(14),
     end $$
 delimiter ;
 
+CALL cadUsuario(
+    '12345678901',   
+    'Maria Oliveira',  
+    'Feminino',        
+    '1990-03-22',     
+    'Rio de Janeiro',  
+    'Copacabana',      
+    'Av. Atlântica',   
+    'maria@example.com', 
+    'senha123',        
+    '9876543210'      
+);
+
 delimiter $$
 create procedure cadnovoServico (in pidServico int,
 						in pnomeServico varchar(45), 
@@ -404,6 +442,12 @@ create procedure cadnovoServico (in pidServico int,
 			value (pidServico, pnomeServico, pvalor);
     end $$
 delimiter ;
+
+CALL cadnovoServico(
+    1,                  
+    'Consultoria',      
+    5000.00            
+);
 
 delimiter $$
 create procedure cadnovoAgendamento (in pidAgendamento int,
@@ -417,6 +461,13 @@ create procedure cadnovoAgendamento (in pidAgendamento int,
     end $$
 delimiter ;
 
+CALL cadnovoAgendamento(
+    101,                
+    250.00,             
+    '2024-12-20 10:30:00', 
+    'Cartão de Crédito'  
+);
+
 delimiter $$
 
 create trigger before_insert_usuario
@@ -429,6 +480,13 @@ begin
         set message_text = 'O sexo deve ser Masculino ou Feminino.';
     end if;
 end $$
+delimiter ;
+	
+INSERT INTO usuario (nome, sexo, dataNasc) 
+VALUES ('João', 'Masculino', '1990-01-01');	
+
+INSERT INTO usuario (nome, sexo, dataNasc) 
+VALUES ('Maria', 'Outros', '1995-05-20');
 
 delimiter $$
 
@@ -440,7 +498,13 @@ begin
     insert into historico_agendamento (idAgendamento, valorPago, dataHora)
     values (new.idAgendamento, new.valorPago, new.dataHora);
 end $$
+delimiter ;
+	
+INSERT INTO agendamento (idAgendamento, valorPago, dataHora) 
+VALUES (1, 100.00, '2024-12-17 10:00:00');
 
+SELECT * FROM historico_agendamento WHERE idAgendamento = 1;	
+	
 delimiter $$
 
 create trigger before_update_funcionario
@@ -453,6 +517,17 @@ begin
         set message_text = 'A data de demissão não pode ser anterior à data de admissão.';
     end if;
 end $$
+delimiter ;
+	
+UPDATE funcionario 
+SET dataDem = '2025-01-01' 
+WHERE matricula = 1234;
+
+UPDATE funcionario 
+SET dataDem = '2020-01-01' 
+WHERE matricula = 1234;
+
+
 
 delimiter $$
 
@@ -464,7 +539,16 @@ begin
     insert into historico_usuario (CPF, nome, sexo, dataNasc, data_modificacao)
     values (old.CPF, old.nome, old.sexo, old.dataNasc, now());
 end $$
+delimiter ;
 
+UPDATE usuario 
+SET nome = 'João Silva' 
+WHERE CPF = '12345678900';
+
+SELECT * FROM historico_usuario WHERE CPF = '12345678900';
+
+
+	
 delimiter $$
 
 create trigger before_delete_agendamento
@@ -477,7 +561,12 @@ begin
         set message_text = 'Não é possível excluir um agendamento que já foi marcado.';
     end if;
 end $$
+delimiter ;
 
+DELETE FROM agendamento WHERE idAgendamento = 1;
+
+DELETE FROM agendamento WHERE idAgendamento = 2;
+	
 delimiter $$
 
 create trigger after_delete_funcionario
@@ -488,6 +577,11 @@ begin
     insert into historico_funcionario (matricula, nomeFuncionario, dataAdm, dataDem, dataNasc)
     values (old.matricula, old.nomeFuncionario, old.dataAdm, old.dataDem, old.dataNasc);
 end $$
-
 delimiter ;
+	
+DELETE FROM funcionario WHERE matricula = 1234;
+
+SELECT * FROM historico_funcionario WHERE matricula = 1234;
+
+
 
