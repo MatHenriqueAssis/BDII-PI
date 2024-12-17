@@ -384,15 +384,15 @@ create procedure cadFunc(in pmatricula varchar(14),
 delimiter ;
 
 CALL cadFunc(
-    '12345678901234',  -- pmatricula
-    'João Silva',      -- pnomeFuncionario
-    'João',            -- pnomeSocial
-    '1985-06-15',      -- pdataNasc
-    '2024-01-10 08:00:00', -- pdataAdm
-    'São Paulo',       -- pcidade
-    'Centro',          -- pbairro
-    'Rua das Flores',  -- prua
-    '123'              -- pnumero
+    '12345678901234',  
+    'João Silva',      
+    'João',            
+    '1985-06-15',      
+    '2024-01-10 08:00:00', 
+    'São Paulo',       
+    'Centro',          
+    'Rua das Flores',  
+    '123'              
 );
 
 delimiter $$
