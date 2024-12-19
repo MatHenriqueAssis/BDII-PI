@@ -22,4 +22,4 @@ A proposta do sistema é gerenciar informações de **usuários**, **agendamento
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/usuario/projeto-integrador.git
+   git clone https://github.com/MatHenriqueAssis/BDII-PI.git
