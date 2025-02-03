@@ -1,25 +1,14 @@
-# Projeto Integrador - Banco de Dados do Salão Escola (SENAC PE)
+# Integrative Project - School Salon Database (SENAC PE)
 
-## Descrição
-Este projeto tem como objetivo a construção de um **Banco de Dados** para gerenciar o funcionamento de um salão escola, realizado como parte do **Projeto Integrador do segundo período** da faculdade **SENAC PE**. O sistema foi desenvolvido utilizando o **MySQL** como Sistema de Gerenciamento de Banco de Dados (SGBD).
+## Description
+The project was developed with the goal of covering the entire life cycle of a database. From its creation, starting with the design of tables, their structure, the types of data to be stored, and the relationships between them. It also involves the insertion of data into the database, followed by the construction of the system's core functionality through the development of functions, procedures, and triggers. Additionally, the project includes data analysis within the database to generate insights and support decision-making.
 
-A proposta do sistema é gerenciar informações de **usuários**, **agendamentos**, **funcionários**, **serviços**, **telefones** e **endereços**, além de permitir o controle do fluxo de agendamentos de serviços, incluindo as formas de pagamento e os funcionários responsáveis por cada agendamento.
+The system was built using **MySQL** as the Database Management System (DBMS), and its primary focus is on managing critical information such as **users**, **appointments**, **employees**, **services**, **phones**, and **addresses**. The project also enables the management of the service appointment flow, including payment methods and tracking of employees responsible for each appointment.
 
-## Funcionalidades Principais
-- **Cadastro de Usuários**: Armazena informações como CPF, nome, sexo, e data de nascimento.
-- **Agendamento de Serviços**: Permite que os usuários agendem serviços, com data, hora e valor do pagamento.
-- **Gestão de Funcionários**: Armazena dados dos funcionários do salão, incluindo cargo, data de admissão e demissão.
-- **Relacionamento de Serviços com Agendamentos**: Cada agendamento pode ter um ou mais serviços associados.
-- **Telefone e Endereço dos Usuários e Funcionários**: Permite armazenar e associar múltiplos telefones e endereços a usuários e funcionários.
+## Main Features
+- **User Registration**: Stores information such as CPF, name, gender, and birth date.
+- **Service Scheduling**: Allows users to schedule services, specifying date, time, and payment value.
+- **Employee Management**: Stores employee data, including job position, admission, and resignation dates.
+- **Service-Appointment Relationship**: Each appointment can have one or more associated services.
+- **Phone and Address for Users and Employees**: Allows storing and associating multiple phones and addresses with users and employees.
 
-## Como Usar
-
-### Requisitos
-1. Ter o **MySQL** instalado em seu computador.
-2. Um ambiente de desenvolvimento para executar comandos SQL.
-
-### Passos para Instalar
-
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/MatHenriqueAssis/BDII-PI.git
